@@ -1,12 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HomeRoutes } from './home/home.routes';
+import { ContentRoutes } from './content/content.routes';
+import { AboutRoutes } from './about/about.routes';
+import { LoginRoutes } from './login/login.routes';
+import { AppLayoutComponent, BlankLayoutComponent } from './shared/components/index';
 
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      /* define app module routes here, e.g., to lazily load a module
-         (do not place feature module routes here, use an own -routing.module.ts in the feature instead)
-       */
+      { 
+        path: '', component: AppLayoutComponent, children: [
+          ...HomeRoutes,
+          ...ContentRoutes,
+          ...AboutRoutes
+        ]
+      },
+      {
+        path: '', component: BlankLayoutComponent, children: [
+          ...LoginRoutes
+        ]
+      }
     ])
   ],
   exports: [RouterModule]

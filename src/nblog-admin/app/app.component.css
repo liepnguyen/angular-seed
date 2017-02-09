@@ -2,3 +2,13 @@
 .col-left {
   width: 230px;
 }
+
+.sub-link {
+    margin-top: 1em;
+    margin-bottom: 3.059em;
+    text-align: center;
+}
+
+.sub-link .small-link {
+    color: #a7a9ab;
+}

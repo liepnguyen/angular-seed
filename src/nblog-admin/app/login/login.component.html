@@ -1,0 +1,23 @@
+<div class="signin-panel">
+  <div class="login-form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h4 class="title">Login to NBlog</h4>
+      <label class="control-label">What's your email?</label>
+      <input type="text" formControlName="username" class="form-control uname" placeholder="Username">
+      <label class="control-label">Password</label>
+      <input type="password" formControlName="password" class="form-control pword" placeholder="Password">
+      <br>
+      <button type="submit" class="btn btn-success btn-block" [disabled]="!loginForm.valid">Sign in</button>
+      <a href="" class="forgot-pass-link"><small>Forgot your password</small></a>
+    </form>
+  </div>
+  <div class="sub-link"><a [routerLink]="['/signup']" class="small-link">Don't have an account? Sign up</a></div>
+</div>
+<div class="signin-footer">
+  <div class="pull-left">
+    © 2014. All Rights Reserved. Planru Solutions
+  </div>
+  <div class="pull-right">
+    Created By: <a href="http://planru.com" target="_blank">Planru Solutions</a>
+  </div>
+</div>

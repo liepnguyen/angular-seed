@@ -37,10 +37,36 @@ export class ProjectConfig extends SeedConfig {
     ];
 
     // Add packages (e.g. ng2-translate)
-    let additionalPackages: ExtendPackages[] = [{
-      name: '@ng-bootstrap/ng-bootstrap',
-      path: 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
-    }];
+    let additionalPackages: ExtendPackages[] = [
+      {
+        name: '@ng-bootstrap/ng-bootstrap',
+        path: 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
+      },
+      {
+        name: '@ngrx/store',
+        packageMeta: {
+          main: 'bundles/store.umd.js',
+          defaultExtension: 'js'
+        }
+      },
+      {
+        name: '@ngrx/core',
+        packageMeta: {
+          main: 'bundles/core.umd.js',
+          defaultExtension: 'js'
+        }
+      },
+      {
+        name: 'ngrx-store-freeze',
+        path: `node_modules/ngrx-store-freeze/dist/index.js`
+      },
+      {
+        name: 'deep-freeze-strict',
+        path: `node_modules/deep-freeze-strict/index.js`
+      }
+    ];
+
+    this.NPM_DEPENDENCIES
     
     this.addPackagesBundles(additionalPackages);
 
