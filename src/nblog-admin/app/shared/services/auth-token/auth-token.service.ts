@@ -30,7 +30,12 @@ export class AuthTokenService {
     return this.http.post('http://localhost:51115/connect/token', this.encodeObjectToParams(data), options)
       .map(res => res.json())
       .map((tokens: AuthTokenModel) => {
+        let now = new Date();
+        tokens.expiration_date = new Date(now.getTime() + tokens.expires_in * 1000).getTime().toString();
+
         this.store.dispatch(this.loggedInActions.loggedIn());
+
+        localStorage.setItem('auth-tokens', JSON.stringify(tokens));
       });
   }
 

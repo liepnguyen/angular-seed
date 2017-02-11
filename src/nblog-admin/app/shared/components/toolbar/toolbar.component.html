@@ -6,9 +6,19 @@
       </a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="['/content']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="nav-link">
+      <a [routerLink]="['/content']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:false}" class="nav-link">
         <i class="fa fa-align-justify"></i> Content
       </a>
+      <ul class="nav child_menu"> 
+        <li class="nav-item">
+          <a [routerLink]="['/content/category']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="nav-link">
+            Categories
+          </a>
+          <a [routerLink]="['/content/tags']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="nav-link">
+            Tags
+          </a>
+        </li>
+      </ul>
     </li>
     <li class="nav-item">
       <a [routerLink]="['/about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="nav-link">

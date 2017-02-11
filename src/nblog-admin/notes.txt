@@ -10,5 +10,7 @@ npm install @ngrx/core @ngrx/store --save
 
 npm install --save-dev ngrx-store-freeze
 
+npm install @swimlane/ngx-datatable --save
+
 gulp serve.dev --client nblog-admin
 

@@ -63,6 +63,13 @@ export class ProjectConfig extends SeedConfig {
       {
         name: 'deep-freeze-strict',
         path: `node_modules/deep-freeze-strict/index.js`
+      },
+      {
+        name: '@swimlane/ngx-datatable',
+        packageMeta: {
+          main: 'release/index.js',
+          defaultExtension: 'js'
+        }
       }
     ];
 

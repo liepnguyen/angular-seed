@@ -1,0 +1,38 @@
+<h3>Categories</h3>
+<div class="row">
+  <div class="col-sm-4">
+    <h5>Add New Category</h5>
+    <form>
+      <div class="form-group"><label for="category-name">Name</label>
+        <input class="form-control" id="category-name" placeholder="" type="text">
+        <p class="help-block">The name is how it appears on your site.</p>
+      </div>
+      <div class="form-group"><label for="category-slug">Slug</label>
+        <input class="form-control" id="category-slug" placeholder="" type="text">
+        <p class="help-block">The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.</p>
+      </div>
+      <div class="form-group"><label for="category-description">Description</label>
+        <textarea class="form-control" name="" id="category-description" rows="4"></textarea>
+        <p class="help-block">The description is not prominent by default; however, some themes may show it.</p>
+      </div>
+      <button class="btn btn-sm btn-primary">Add New Category</button>
+    </form>
+  </div>
+  <div class="col-sm-8">
+    <ngx-datatable 
+      class="material ngx-datatable"
+      [rows]="rows" 
+      [columns]="columns"
+      [columnMode]="'force'"
+      [headerHeight]="35"
+      [footerHeight]="35"
+      [rowHeight]="'auto'"
+      [limit]="10">
+    </ngx-datatable>
+  </div>
+</div>
+
+<template #actionTmpl let-row="row" let-value="value" let-i="index">
+  <button class="btn btn-sm"><i class="fa fa-trash-o"></i></button>
+  <button class="btn btn-sm"><i class="fa fa fa-pencil"></i></button>
+</template>

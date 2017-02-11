@@ -8,17 +8,13 @@
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   border-right: 1px solid #eee;
   background: #384042;
-  width: 230px;
+  width: 160px;
 }
 
 /* Sidebar navigation */
 .sidebar {
   padding-left: 0;
   padding-right: 0;
-}
-
-.sidebar .nav {
-  margin-bottom: 20px;
 }
 
 .sidebar .nav-item {
@@ -45,4 +41,39 @@
 
 .router-link-active {
   background: #2c3334;
+}
+
+/* child menu styles */
+.nav .child_menu {
+  /*display: none;*/
+}
+
+.nav .child_menu .nav-link {
+  padding: 10px 16px;
+  padding-left: 41px;
+  position: relative;
+  font-size: 0.89em;
+}
+
+.nav .child_menu .nav-link::after {
+  border-left: 1px solid #425668;
+  bottom: 0;
+  content: "";
+  left: 29px;
+  position: absolute;
+  top: 0;
+}
+
+.nav .child_menu .nav-link::before {
+  background: #425668;
+  bottom: auto;
+  content: "";
+  height: 8px;
+  left: 25px;
+  margin-top: 7px;
+  position: absolute;
+  right: auto;
+  width: 8px;
+  z-index: 1;
+  border-radius: 50%;
 }
