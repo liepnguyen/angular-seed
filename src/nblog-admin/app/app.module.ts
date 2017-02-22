@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule, 
     HttpModule, 
     AppRoutingModule,
+    NgbModule.forRoot(),
     AboutModule, 
     HomeModule, 
     ContentModule, 

@@ -1,8 +1,8 @@
 <h3>Categories</h3>
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-lg-4">
     <h5>Add New Category</h5>
-    <form [formGroup]="addNewCategoryForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="addNewOrEditCategoryForm" (ngSubmit)="onSubmit()">
       <div class="form-group"><label for="category-name">Name</label>
         <input type="text" class="form-control" id="category-name" formControlName="categoryName" placeholder="">
         <p class="help-block">The name is how it appears on your site.</p>
@@ -15,10 +15,11 @@
         <textarea class="form-control" name="" id="category-description" rows="4" formControlName="categoryDescription"></textarea>
         <p class="help-block">The description is not prominent by default; however, some themes may show it.</p>
       </div>
-      <button type="submit" class="btn btn-sm btn-primary" [disabled]="!addNewCategoryForm.valid">Add New Category</button>
+      <button type="button" class="btn btn-primary" [disabled]="!addNewOrEditCategoryForm.valid">Add New Category</button>
+      <button type="button" class="btn btn-default">Cancel</button>
     </form>
   </div>
-  <div class="col-sm-8">
+  <div class="col-lg-8">
     <ngx-datatable 
       class="material ngx-datatable"
       [rows]="rows" 

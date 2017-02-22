@@ -40,7 +40,10 @@ export class ProjectConfig extends SeedConfig {
     let additionalPackages: ExtendPackages[] = [
       {
         name: '@ng-bootstrap/ng-bootstrap',
-        path: 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
+        packageMeta: {
+          main: 'bundles/ng-bootstrap.js',
+          defaultExtension: 'js'
+        }
       },
       {
         name: '@ngrx/store',
@@ -58,11 +61,17 @@ export class ProjectConfig extends SeedConfig {
       },
       {
         name: 'ngrx-store-freeze',
-        path: `node_modules/ngrx-store-freeze/dist/index.js`
+        packageMeta: {
+          main: 'dist/index.js',
+          defaultExtension: 'js'
+        }
       },
       {
         name: 'deep-freeze-strict',
-        path: `node_modules/deep-freeze-strict/index.js`
+        packageMeta: {
+          main: 'index.js',
+          defaultExtension: 'js'
+        }
       },
       {
         name: '@swimlane/ngx-datatable',

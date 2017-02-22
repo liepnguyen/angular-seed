@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddOrEditCategoryModal } from './add-edit-category-modal.component';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 /**
  * This class represents the lazy loaded CategoryComponent.
@@ -14,18 +16,31 @@ export class CategoryComponent implements OnInit {
   @ViewChild('actionTmpl') actionTmpl: TemplateRef<any>;
   rows: any[];
   columns: any[];
-  addNewCategoryForm: FormGroup;
+  addNewOrEditCategoryForm: FormGroup;
 
-  public constructor(private formBuilder: FormBuilder) {
+  public constructor(private formBuilder: FormBuilder,
+                     private modalService: NgbModal) {
   }
 
   onSubmit() {
-    var formValue = this.addNewCategoryForm.value;
+    var formValue = this.addNewOrEditCategoryForm.value;
     this.rows.push({
       name: formValue.categoryName,
       description: formValue.categoryDescription,
       slug: formValue.categorySlug,
       count: 1
+    });
+
+    this.initAddNewOrEditCategoryForm();
+
+    
+  }
+
+  private initAddNewOrEditCategoryForm() {
+    this.addNewOrEditCategoryForm = this.formBuilder.group({
+      categoryName: ['', Validators.required],
+      categorySlug: ['', Validators.required],
+      categoryDescription: ['']
     });
   }
 
@@ -46,10 +61,9 @@ export class CategoryComponent implements OnInit {
       }
     ];
 
-    this.addNewCategoryForm = this.formBuilder.group({
-      categoryName: ['', Validators.required],
-      categorySlug: ['', Validators.required],
-      categoryDescription: ['']
-    })
+    this.initAddNewOrEditCategoryForm();
+
+    const modalRef = this.modalService.open(AddOrEditCategoryModal);
+    modalRef.componentInstance.name = 'World';
   }
 }
